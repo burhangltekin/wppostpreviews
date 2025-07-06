@@ -17,7 +17,7 @@ My Post Previews adds a simple, fast, and clean interface for WordPress admins a
 
 == Installation ==
 
-1. Upload the plugin files to the `/wp-content/plugins/my-post-previews` directory, or install the plugin through the WordPress plugins screen directly.
+1. Upload the plugin files to the `/wp-content/plugins/wppostpreviews` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the ‘Plugins’ screen in WordPress.
 3. Access the new ‘Post Previews’ menu in the admin sidebar.
 

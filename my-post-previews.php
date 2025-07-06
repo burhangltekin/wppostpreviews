@@ -5,7 +5,7 @@ Description: Custom admin dashboard to preview and change post statuses quickly.
 Version: 1.0.0
 Author: Your Name
 License: GPL2
-Text Domain: my-post-previews
+Text Domain: wppostpreviewss
 */
 
 // Prevent direct access
@@ -16,8 +16,8 @@ if (!defined('ABSPATH')) {
 // Add custom admin menu page
 add_action('admin_menu', function () {
     add_menu_page(
-        __('Post Previews', 'my-post-previews'),
-        __('Post Previews', 'my-post-previews'),
+        __('Post Previews', 'wppostpreviewss'),
+        __('Post Previews', 'wppostpreviewss'),
         'edit_posts',
         'post-previews',
         'mpp_show_post_previews',
@@ -59,21 +59,21 @@ function mpp_show_post_previews()
     $status_filter = isset($_GET['post_status']) ? sanitize_text_field($_GET['post_status']) : '';
 
     echo '<div class="wrap">';
-    echo '<h1>' . esc_html__('Post Previews', 'my-post-previews') . '</h1>';
+    echo '<h1>' . esc_html__('Post Previews', 'wppostpreviewss') . '</h1>';
 
     // Filter form
     echo '<form method="get" style="margin-bottom: 20px;">';
     echo '<input type="hidden" name="page" value="post-previews">';
-    echo '<label for="post_status">' . esc_html__('Filter by status:', 'my-post-previews') . '</label> ';
+    echo '<label for="post_status">' . esc_html__('Filter by status:', 'wppostpreviewss') . '</label> ';
     echo '<select name="post_status" id="post_status" onchange="this.form.submit()">';
-    echo '<option value="">' . esc_html__('All', 'my-post-previews') . '</option>';
+    echo '<option value="">' . esc_html__('All', 'wppostpreviewss') . '</option>';
     $statuses = ['publish' => 'Published', 'draft' => 'Draft', 'future' => 'Scheduled', 'pending' => 'Pending', 'private' => 'Private'];
     foreach ($statuses as $key => $label) {
         printf(
             '<option value="%s" %s>%s</option>',
             esc_attr($key),
             selected($status_filter, $key, false),
-            esc_html__($label, 'my-post-previews')
+            esc_html__($label, 'wppostpreviewss')
         );
     }
     echo '</select>';
@@ -97,11 +97,11 @@ function mpp_show_post_previews()
             $thumbnail = get_the_post_thumbnail_url($post_id, 'medium');
             $title = get_the_title($post_id);
             if (empty($title)) {
-                $title = __('(No Title)', 'my-post-previews');
+                $title = __('(No Title)', 'wppostpreviewss');
             }
 
             $excerpt_raw = get_the_excerpt($post_id);
-            $excerpt = $excerpt_raw ? wp_trim_words($excerpt_raw, 20) : __('(No excerpt available)', 'my-post-previews');
+            $excerpt = $excerpt_raw ? wp_trim_words($excerpt_raw, 20) : __('(No excerpt available)', 'wppostpreviewss');
 
             $status = get_post_status($post_id);
             $post_link = get_permalink($post_id);
@@ -117,33 +117,33 @@ function mpp_show_post_previews()
             }
 
             echo '<h3>' . esc_html($title) . '</h3>';
-            echo '<p><strong>' . esc_html__('Status:', 'my-post-previews') . '</strong> ' . esc_html($status) . '</p>';
+            echo '<p><strong>' . esc_html__('Status:', 'wppostpreviewss') . '</strong> ' . esc_html($status) . '</p>';
             echo '<p>' . esc_html($excerpt) . '</p>';
 
             // Only show preview link if it exists and the post is public or user has access
             if ($post_link && ($status === 'publish' || current_user_can('edit_post', $post_id))) {
-                echo '<a href="' . esc_url($post_link) . '" target="_blank">' . esc_html__('Preview', 'my-post-previews') . '</a>';
+                echo '<a href="' . esc_url($post_link) . '" target="_blank">' . esc_html__('Preview', 'wppostpreviewss') . '</a>';
             } else {
-                echo '<p><em>' . esc_html__('No preview available.', 'my-post-previews') . '</em></p>';
+                echo '<p><em>' . esc_html__('No preview available.', 'wppostpreviewss') . '</em></p>';
             }
 
             // Status change form
             echo '<form method="post" style="margin-top:10px;">';
             echo '<input type="hidden" name="post_id" value="' . esc_attr($post_id) . '">';
             echo '<select name="new_status">';
-            echo '<option value="">' . esc_html__('-- Change Status --', 'my-post-previews') . '</option>';
-            echo '<option value="publish">' . esc_html__('Publish', 'my-post-previews') . '</option>';
-            echo '<option value="draft">' . esc_html__('Draft', 'my-post-previews') . '</option>';
-            echo '<option value="private">' . esc_html__('Private', 'my-post-previews') . '</option>';
-            echo '<option value="trash">' . esc_html__('Trash', 'my-post-previews') . '</option>';
+            echo '<option value="">' . esc_html__('-- Change Status --', 'wppostpreviewss') . '</option>';
+            echo '<option value="publish">' . esc_html__('Publish', 'wppostpreviewss') . '</option>';
+            echo '<option value="draft">' . esc_html__('Draft', 'wppostpreviewss') . '</option>';
+            echo '<option value="private">' . esc_html__('Private', 'wppostpreviewss') . '</option>';
+            echo '<option value="trash">' . esc_html__('Trash', 'wppostpreviewss') . '</option>';
             echo '</select> ';
-            echo '<input type="submit" name="change_status" value="' . esc_attr__('Apply', 'my-post-previews') . '">';
+            echo '<input type="submit" name="change_status" value="' . esc_attr__('Apply', 'wppostpreviewss') . '">';
             echo '</form>';
 
             echo '</div>';
         }
     } else {
-        echo '<p>' . esc_html__('No posts found.', 'my-post-previews') . '</p>';
+        echo '<p>' . esc_html__('No posts found.', 'wppostpreviewss') . '</p>';
     }
 
     echo '</div>';

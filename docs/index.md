@@ -19,7 +19,7 @@ Custom admin dashboard plugin to preview and change post statuses quickly.
 
 ## Installation
 
-1. Download the plugin ZIP from [WordPress Plugin Directory](https://wordpress.org/plugins/your-plugin-slug/) or clone from GitHub.
+1. Download the plugin ZIP from [WordPress Plugin Directory](https://wordpress.org/plugins/wppostpreviews/) or clone from GitHub.
 2. Upload to your WordPress `wp-content/plugins/` directory.
 3. Activate the plugin from the WordPress admin panel.
 
