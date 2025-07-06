@@ -1,4 +1,4 @@
-# My Post Previews
+# Post Previews
 
 A simple WordPress admin plugin to preview and quickly change the status of your posts from a clean dashboard.
 

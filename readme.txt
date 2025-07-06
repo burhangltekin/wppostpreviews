@@ -1,6 +1,6 @@
-=== My Post Previews ===
-Contributors: yourusername
-Donate link: https://yourwebsite.com/donate
+=== Post Previews ===
+Contributors: bgtwpplugincreator
+Donate link: buymeacoffee.com/bgtekin
 Tags: posts, admin, editorial, post status, management
 Requires at least: 5.0
 Tested up to: 6.3
