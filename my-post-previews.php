@@ -87,7 +87,13 @@ function mpp_show_post_previews() {
     if ($query->have_posts()) {
         while ($query->have_posts()) {
             $query->the_post();
-            $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'medium') ?: 'https://via.placeholder.com/300x200?text=No+Image';
+            
+            $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+            if ($thumbnail) {
+              echo "<img src='$thumbnail' style='width:100%;height:auto;'>";
+            } 
+
+
             $title = get_the_title();
             $excerpt = wp_trim_words(get_the_excerpt(), 20);
             $status = get_post_status();
