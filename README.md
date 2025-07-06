@@ -18,7 +18,8 @@ A simple WordPress admin plugin to preview and quickly change the status of your
 
 ## Screenshots
 
-![Post Previews Screenshot](https://yourwebsite.com/path/to/screenshot.png)
+![Post Previews Screenshot](assets/screenshot.png)
+
 
 ## License
 
